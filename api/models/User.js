@@ -7,6 +7,9 @@ const userSchema = new mongoose.Schema(
     email: { type: String, unique: true, required: true },
     password: { type: String, required: true },
     token: { type: String },
+    periodDate: { type: Date },
+    periodCycle: { type: Number },
+    daysLeft: { type: Number },
   },
   {
     timestamps: true,

@@ -9,6 +9,7 @@ app.use(cors());
 const AuthUser = require("./routes/auth/index");
 const tasks = require("./routes/tasks");
 const expense = require("./routes/expense");
+const period = require("./routes/period");
 connectDB();
 
 app.use(express.json({ extended: false }));
@@ -17,6 +18,7 @@ app.use(express.json({ extended: false }));
 app.use("/api/auth", AuthUser);
 app.use("/api/tasks", tasks);
 app.use("/api/expense", expense);
+app.use("/api/period", period);
 
 const PORT = process.env.PORT || 5000;
 

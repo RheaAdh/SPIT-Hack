@@ -79,9 +79,17 @@ const Expense = () => {
   };
   return (
     <div>
-      <h1>Total in pocket: {inhandCash}</h1>
+      <h1>Balance: {inhandCash}</h1>
       {pieData ? <PieChart data={pieData} style={{ height: "10rem" }} /> : null}
-
+      {pieData
+        ? pieData.map((data) => (
+            <div>
+              <h3>
+                {data.title} : {data.value}
+              </h3>
+            </div>
+          ))
+        : null}
       <form>
         <label>Type:</label>
         <select

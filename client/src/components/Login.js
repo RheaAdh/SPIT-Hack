@@ -43,9 +43,14 @@ const Login = () => {
 
   return (
     <div>
+      <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </div>
       <form onSubmit={handleFormSubmit}>
         <h2>Login</h2>
         <div>
+          <label for="username">Email</label>
           <input
             placeholder="Enter email"
             type="text"
@@ -53,6 +58,7 @@ const Login = () => {
           ></input>
         </div>
         <div>
+          <label for="username">Password</label>
           <input
             placeholder="Password"
             type="password"

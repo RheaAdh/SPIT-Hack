@@ -75,10 +75,16 @@ const Register = () => {
   };
 
   return (
-    <div className="register">
-      <h2>Register</h2>
+    <div>
+      <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </div>
+
       <form onSubmit={handleFormSubmit}>
+        <h2>Register</h2>
         <div>
+          <label for="username">Full Name</label>
           <input
             placeholder="Full name"
             type="text"
@@ -86,6 +92,7 @@ const Register = () => {
           ></input>
         </div>
         <div>
+          <label for="username">Username</label>
           <input
             placeholder="Username(no space)"
             type="text"
@@ -93,6 +100,7 @@ const Register = () => {
           ></input>
         </div>
         <div>
+          <label for="email">Email</label>
           <input
             placeholder="Email"
             type="text"
@@ -100,6 +108,7 @@ const Register = () => {
           ></input>
         </div>
         <div>
+          <label for="password">Password</label>
           <input
             placeholder="Password"
             type="password"
