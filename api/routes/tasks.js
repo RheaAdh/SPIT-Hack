@@ -1,4 +1,4 @@
-const Task = require("../models/task");
+const Task = require("../models/Task");
 const express = require("express");
 const router = express.Router();
 const isLoggedIn = require("../middleware/isLoggedIn");

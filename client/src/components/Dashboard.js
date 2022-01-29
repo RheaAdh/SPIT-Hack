@@ -5,8 +5,10 @@ const Dashboard = () => {
   const auth = useAuth();
   return (
     <div>
-      <Todo />
       <button onClick={() => auth.logout()}>Logout</button>
+      <br />
+      <br />
+      <Todo />
     </div>
   );
 };
