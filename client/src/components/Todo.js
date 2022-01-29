@@ -5,6 +5,7 @@ import { Checkbox, Button } from "@material-ui/core";
 
 class Todo extends Tasks {
   state = { tasks: [], currentTask: "" };
+
   render() {
     const { tasks } = this.state;
     return (

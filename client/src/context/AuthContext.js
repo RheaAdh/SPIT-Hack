@@ -57,7 +57,9 @@ export default function AuthProvider({ children }) {
 
   const logout = () => {
     try {
+      console.log(user);
       setUser(null);
+
       localStorage.removeItem(TOKEN_ID);
       navigate("/");
     } catch (err) {
