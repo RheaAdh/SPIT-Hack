@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { TOKEN_ID } from "../utils/constants";
-
+import { useAuth } from "../context/AuthContext";
 const Expense = () => {
+  const auth = useAuth();
   const [category, setCategory] = React.useState("Food");
   const [methodType, setMethodType] = React.useState("Expense");
   const [amount, setAmount] = React.useState(0);
   const [inhandCash, setInhandCash] = React.useState(0);
-
+  const [link, setLink] = React.useState("");
   const fetchTotal = async () => {
     try {
       const res = await axios.get("http://localhost:5000/api/expense/total", {
@@ -24,25 +25,37 @@ const Expense = () => {
     }
   };
 
+  const settingLink = () => {
+    console.log(auth.user._id);
+    if (auth.user._id)
+      setLink(`http://localhost:5000/api/expense/createSheet/${auth.user._id}`);
+  };
   useEffect(() => {
+    settingLink();
     fetchTotal();
   }, []);
 
   const handleSubmit = async (e) => {
-    console.log(category, methodType, amount);
+    console.log("inside handle submit");
+
     const data = {
       category,
       methodType,
       amount,
     };
-    const res = await axios.post("http://localhost:5000/api/expense", data, {
-      headers: {
-        "Content-Type": "application/json",
-        "x-auth-token": localStorage.getItem(TOKEN_ID),
-      },
-    });
-    console.log(res);
-    setAmount(0);
+    console.log(data);
+    try {
+      const res = await axios.post("http://localhost:5000/api/expense", data, {
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": localStorage.getItem(TOKEN_ID),
+        },
+      });
+      console.log(res);
+      setAmount(0);
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div>
@@ -82,6 +95,8 @@ const Expense = () => {
           Add
         </button>
       </form>
+
+      <a href={link}>Download Report</a>
     </div>
   );
 };

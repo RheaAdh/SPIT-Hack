@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const isLoggedIn = require("../middleware/isLoggedIn");
 const Expense = require("../models/Expense");
+const createSheet = require("../utils/createSheet");
 
 router.post("/", isLoggedIn, async (req, res) => {
   console.log("inside expense post");
@@ -23,6 +24,7 @@ router.post("/", isLoggedIn, async (req, res) => {
 });
 
 router.get("/", isLoggedIn, async (req, res) => {
+  console.log("here");
   try {
     const items = await Expense.find({ userId: req.user.id });
     return res.send({ success: true, data: items });
@@ -47,6 +49,23 @@ router.get("/total", isLoggedIn, async (req, res) => {
     return res.send({ success: true, data: total });
   } catch (error) {
     res.send(error);
+  }
+});
+
+router.get("/createSheet/:userId", async (req, res) => {
+  try {
+    console.log("bybebybeyeby");
+    const response = await Expense.find({ userId: req.params.userId });
+    console.log("okokokok");
+    console.log(response);
+    if (response) {
+      await createSheet(response).then((file) => {
+        file.write("Expenses.xlsx", res);
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    return res.json({ success: false, message: "Please Try Again" });
   }
 });
 

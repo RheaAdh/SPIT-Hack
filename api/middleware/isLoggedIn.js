@@ -3,6 +3,7 @@ const User = require("../models/User");
 
 module.exports = async function (req, res, next) {
   const token = req.header("x-auth-token");
+  console.log(token);
   if (!token) {
     return res.status(401).json({
       success: false,
@@ -13,6 +14,7 @@ module.exports = async function (req, res, next) {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded.user;
     let user = await User.findOne({ _id: req.user.id });
+    console.log(user);
     if (user) next();
   } catch (err) {
     res.status(401).json({
