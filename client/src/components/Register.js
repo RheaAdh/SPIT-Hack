@@ -75,7 +75,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="register">
       <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>

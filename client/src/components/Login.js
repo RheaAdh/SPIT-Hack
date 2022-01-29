@@ -42,7 +42,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="login">
       <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>

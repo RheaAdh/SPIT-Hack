@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #192325;
+}
+
+.login .background {
+  width: 430px;
+  height: 520px;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.login .background .shape {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.login .shape:first-child {
+  background: -webkit-gradient(linear, left top, left bottom, from(#384147), to(#bbbbbb));
+  background: linear-gradient(#384147, #bbbbbb);
+  left: -80px;
+  top: -80px;
+}
+
+.login .shape:last-child {
+  background: -webkit-gradient(linear, left top, right top, from(#bbf247), to(#000000));
+  background: linear-gradient(to right, #bbf247, #000000);
+  right: -30px;
+  bottom: -80px;
+}
+
+.login form {
+  height: 520px;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.13);
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+          box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
+}
+
+.login form * {
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+}
+
+.login form h3 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+}
+
+.login label {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.login input {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.login ::-webkit-input-placeholder {
+  color: #bbf247;
+}
+
+.login :-ms-input-placeholder {
+  color: #bbf247;
+}
+
+.login ::-ms-input-placeholder {
+  color: #bbf247;
+}
+
+.login ::placeholder {
+  color: #bbf247;
+}
+
+.login button {
+  margin-top: 100px;
+  width: 100%;
+  background-color: #192225;
+  color: #bbf247;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register .background {
+  width: 430px;
+  height: 520px;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.register .background .shape {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.register .shape:first-child {
+  background: -webkit-gradient(linear, left top, left bottom, from(#384147), to(#bbbbbb));
+  background: linear-gradient(#384147, #bbbbbb);
+  left: -80px;
+  top: -80px;
+}
+
+.register .shape:last-child {
+  background: -webkit-gradient(linear, left top, right top, from(#bbf247), to(#000000));
+  background: linear-gradient(to right, #bbf247, #000000);
+  right: -30px;
+  bottom: -80px;
+}
+
+.register form {
+  height: 520px;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.13);
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+          box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
+}
+
+.register form * {
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+}
+
+.register form h3 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+}
+
+.register label {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.register input {
+  display: block;
+  height: 35px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.register ::-webkit-input-placeholder {
+  color: #bbf247;
+}
+
+.register :-ms-input-placeholder {
+  color: #bbf247;
+}
+
+.register ::-ms-input-placeholder {
+  color: #bbf247;
+}
+
+.register ::placeholder {
+  color: #bbf247;
+}
+
+.register button {
+  margin-top: 60px;
+  width: 100%;
+  background-color: #192225;
+  color: #bbf247;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=index.css.map */
