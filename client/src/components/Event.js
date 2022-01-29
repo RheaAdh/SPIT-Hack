@@ -5,8 +5,10 @@ import { TOKEN_ID } from "../utils/constants";
 const Event = () => {
   const [eventDate, setEventDate] = React.useState(new Date());
   const [eventType, setEventType] = React.useState("");
+  const [eventDetails, setEventDetails] = React.useState([]);
 
   const handleSubmit = async () => {
+    console.log("innnnnnnn");
     const data = {
       eventDate,
       eventType,
@@ -27,12 +29,16 @@ const Event = () => {
         "x-auth-token": localStorage.getItem(TOKEN_ID),
       },
     });
+    alert("hi");
+    console.log("in evennnnnnnnnnt");
+    console.log(res);
+    setEventDetails(res.data.data);
   };
   useEffect(() => {
     getDetails();
   }, []);
   return (
-    <div>
+    <div className="event">
       <form onSubmit={handleSubmit}>
         <h4>Event</h4>
 
@@ -42,13 +48,22 @@ const Event = () => {
           onChange={(e) => setEventDate(e.target.value)}
         ></input>
         <input
-          type="number"
+          type="text"
           placeholder="event text"
           onChange={(e) => setEventType(e.target.value)}
         ></input>
 
         <button type="submit">Add Details</button>
       </form>
+      {eventDetails ? (
+        eventDetails.map((data) => (
+          <h3>
+            {data.eventDate} : {data.eventType}
+          </h3>
+        ))
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };

@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 const User = require("./User");
 
-const ExpenseSchema = new mongoose.Schema({
-  date: {
+const EventSchema = new mongoose.Schema({
+  eventDate: {
     type: String,
   },
-  eventName: {
+  eventType: {
     type: String,
   },
   userId: { type: mongoose.Schema.ObjectId, ref: "User" },
 });
 
-module.exports = mongoose.model("Expense", ExpenseSchema);
+module.exports = mongoose.model("Event", EventSchema);

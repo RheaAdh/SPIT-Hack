@@ -1,15 +1,6 @@
 @import "./constants";
 @import "./base";
-*,
-*:before,
-*:after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-body {
-  background-color: #192325;
-}
+
 .login {
   .background {
     width: 430px;
@@ -180,4 +171,16 @@ body {
     border-radius: 5px;
     cursor: pointer;
   }
+}
+
+.dashboard {
+}
+
+.event {
+}
+
+.expense {
+}
+
+.todo {
 }

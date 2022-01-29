@@ -78,7 +78,7 @@ const Expense = () => {
     }
   };
   return (
-    <div>
+    <div className="expense">
       <h1>Balance: {inhandCash}</h1>
       {pieData ? <PieChart data={pieData} style={{ height: "10rem" }} /> : null}
       {pieData

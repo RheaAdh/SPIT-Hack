@@ -7,7 +7,7 @@ import { useAuth } from "../context/AuthContext";
 const Dashboard = () => {
   const auth = useAuth();
   return (
-    <div>
+    <div className="dashboard">
       <button onClick={() => auth.logout()}>Logout</button>
       <Event />
       <br />

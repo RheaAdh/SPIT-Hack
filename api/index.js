@@ -10,6 +10,8 @@ const AuthUser = require("./routes/auth/index");
 const tasks = require("./routes/tasks");
 const expense = require("./routes/expense");
 const period = require("./routes/period");
+const event = require("./routes/event");
+
 connectDB();
 
 app.use(express.json({ extended: false }));
@@ -19,6 +21,7 @@ app.use("/api/auth", AuthUser);
 app.use("/api/tasks", tasks);
 app.use("/api/expense", expense);
 app.use("/api/period", period);
+app.use("/api/event", event);
 
 const PORT = process.env.PORT || 5000;
 

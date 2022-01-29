@@ -4,10 +4,10 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const Event = require("../models/Event");
 
 router.post("/", isLoggedIn, async (req, res) => {
-  const { date, eventType } = req.body;
+  const { eventDate, eventType } = req.body;
   try {
     const item = await new Event({
-      date,
+      eventDate,
       eventType,
       userId: req.user.id,
     });

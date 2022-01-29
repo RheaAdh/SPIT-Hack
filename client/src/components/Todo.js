@@ -9,7 +9,7 @@ class Todo extends Tasks {
   render() {
     const { tasks } = this.state;
     return (
-      <div className="Todo flex">
+      <div className="todo">
         <Paper elevation={3} className="container">
           <div className="heading">TO-DO</div>
           <form
