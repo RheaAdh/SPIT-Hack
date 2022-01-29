@@ -69,4 +69,31 @@ router.get("/createSheet/:userId", async (req, res) => {
   }
 });
 
+router.get("/data", isLoggedIn, async (req, res) => {
+  try {
+    const response = await Expense.find({ userId: req.user.id });
+    // sort by category
+    const mp = new Map();
+    response.forEach((item) => {
+      if (mp.has(item.category)) {
+        mp.set(item.category, mp.get(item.category) + item.amount);
+      } else {
+        mp.set(item.category, item.amount);
+      }
+    });
+    const data = [];
+    mp.forEach((value, key) => {
+      data.push({
+        title: key,
+        value: value,
+        color: `hsl(${(data.length * 360) / mp.size}, 100%, 50%)`,
+      });
+    });
+    return res.send({ success: true, data: data });
+  } catch (error) {
+    console.log(error);
+    return res.json({ success: false, message: "Please Try Again" });
+  }
+});
+
 module.exports = router;
