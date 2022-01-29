@@ -77,6 +77,7 @@ const Expense = () => {
       console.log(err);
     }
   };
+
   return (
     <div className="expense">
       <h1>Balance: {inhandCash}</h1>

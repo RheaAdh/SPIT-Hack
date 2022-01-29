@@ -42,8 +42,9 @@ const Period = () => {
   useEffect(() => {
     getDays();
   }, []);
+
   return (
-    <div>
+    <div className="period">
       <form onSubmit={handleSubmit}>
         {" "}
         <h4>Period</h4>

@@ -43,9 +43,9 @@ const Login = () => {
 
   return (
     <div className="login">
-      <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
+      <div className="background">
+        <div className="shape"></div>
+        <div className="shape"></div>
       </div>
       <form onSubmit={handleFormSubmit}>
         <h2>Login</h2>

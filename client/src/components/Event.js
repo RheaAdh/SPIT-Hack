@@ -37,6 +37,7 @@ const Event = () => {
   useEffect(() => {
     getDetails();
   }, []);
+
   return (
     <div className="event">
       <form onSubmit={handleSubmit}>
