@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { TOKEN_ID } from "../utils/constants";
 import { useAuth } from "../context/AuthContext";
+import { PieChart } from "react-minimal-pie-chart";
+
 const Expense = () => {
   const auth = useAuth();
   const [category, setCategory] = React.useState("Food");
@@ -9,6 +11,7 @@ const Expense = () => {
   const [amount, setAmount] = React.useState(0);
   const [inhandCash, setInhandCash] = React.useState(0);
   const [link, setLink] = React.useState("");
+  const [pieData, setPieData] = React.useState([]);
   const fetchTotal = async () => {
     try {
       const res = await axios.get("http://localhost:5000/api/expense/total", {
@@ -30,7 +33,24 @@ const Expense = () => {
     if (auth.user._id)
       setLink(`http://localhost:5000/api/expense/createSheet/${auth.user._id}`);
   };
+
+  const fetchExpenseData = async () => {
+    try {
+      const res = await axios.get(`http://localhost:5000/api/expense/data`, {
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": localStorage.getItem(TOKEN_ID),
+        },
+      });
+      console.log(res);
+      setPieData(res.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
+    fetchExpenseData();
     settingLink();
     fetchTotal();
   }, []);
@@ -60,6 +80,8 @@ const Expense = () => {
   return (
     <div>
       <h1>Total in pocket: {inhandCash}</h1>
+      {pieData ? <PieChart data={pieData} style={{ height: "10rem" }} /> : null}
+
       <form>
         <label>Type:</label>
         <select
@@ -95,7 +117,6 @@ const Expense = () => {
           Add
         </button>
       </form>
-
       <a href={link}>Download Report</a>
     </div>
   );
