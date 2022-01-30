@@ -20,8 +20,6 @@ const Expense = () => {
           "x-auth-token": localStorage.getItem(TOKEN_ID),
         },
       });
-      console.log("use eff tot");
-      console.log(res);
       setInhandCash(res.data.data);
     } catch (err) {
       console.log(err);
@@ -29,7 +27,6 @@ const Expense = () => {
   };
 
   const settingLink = () => {
-    console.log(auth.user._id);
     if (auth.user._id)
       setLink(`http://localhost:5000/api/expense/createSheet/${auth.user._id}`);
   };
@@ -42,7 +39,6 @@ const Expense = () => {
           "x-auth-token": localStorage.getItem(TOKEN_ID),
         },
       });
-      console.log(res);
       setPieData(res.data.data);
     } catch (err) {
       console.log(err);
@@ -56,14 +52,11 @@ const Expense = () => {
   }, []);
 
   const handleSubmit = async (e) => {
-    console.log("inside handle submit");
-
     const data = {
       category,
       methodType,
       amount,
     };
-    console.log(data);
     try {
       const res = await axios.post("http://localhost:5000/api/expense", data, {
         headers: {
@@ -71,7 +64,6 @@ const Expense = () => {
           "x-auth-token": localStorage.getItem(TOKEN_ID),
         },
       });
-      console.log(res);
       setAmount(0);
     } catch (err) {
       console.log(err);
@@ -79,33 +71,64 @@ const Expense = () => {
   };
 
   return (
-    <div className="expense">
-      <h1>Balance: {inhandCash}</h1>
-      {pieData ? <PieChart data={pieData} style={{ height: "10rem" }} /> : null}
-      {pieData
-        ? pieData.map((data) => (
-            <div>
-              <h3>
+    <div className="expenseTracker">
+      <div class="expenseHeadline">
+        <p align="center" style={{ fontSize: "1.5rem" }}>
+          Balance:{" "}
+          <span class="amount" style={{ fontSize: "3rem" }}>
+            &nbsp;{inhandCash}
+          </span>
+        </p>
+      </div>
+      <div className="legend">
+        <span
+          style={{
+            marginLeft: "1rem",
+          }}
+        >
+          <a
+            className="btn"
+            href={link}
+            style={{ padding: "10px", borderRadius: "15px", margin: "1rem" }}
+          >
+            Download Full Report
+          </a>
+        </span>
+        {pieData
+          ? pieData.map((data) => (
+              <h3 style={{ paddingTop: "0.5rem", backgroundColor: "#192225" }}>
                 {data.title} : {data.value}
               </h3>
-            </div>
-          ))
-        : null}
-      <form>
-        <label>Type:</label>
+            ))
+          : null}
+      </div>
+
+      <div className="chart">
+        {pieData ? (
+          <PieChart data={pieData} style={{ height: "15rem" }} />
+        ) : null}
+      </div>
+
+      <form className="expenseForm" onSubmit={handleSubmit}>
         <select
+          name="type"
+          id="type"
           onChange={(e) => {
             setMethodType(e.target.value);
           }}
+          style={{ width: "8rem", height: "2rem", marginBottom: "2rem" }}
         >
           <option value="Expense">Expense</option>
           <option value="Income">Income</option>
         </select>
-        <label>Categories</label>
+
         <select
+          name="category"
+          id="category"
           onChange={(e) => {
             setCategory(e.target.value);
           }}
+          style={{ width: "15rem", height: "2rem", marginBottom: "2rem" }}
         >
           <option value="Food">Food</option>
           <option value="Travel">Travel</option>
@@ -117,16 +140,17 @@ const Expense = () => {
         </select>
         <input
           type="number"
+          id="amount"
+          min="0"
           placeholder="Amount"
           onChange={(e) => {
             setAmount(e.target.value);
           }}
+          style={{ width: "8rem", height: "2rem", marginBottom: "2rem" }}
         ></input>
-        <button type="submit" onClick={handleSubmit}>
-          Add
-        </button>
+
+        <input type="submit" id="expenseSubmit" value="+"></input>
       </form>
-      <a href={link}>Download Report</a>
     </div>
   );
 };

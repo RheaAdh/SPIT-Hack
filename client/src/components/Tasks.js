@@ -13,7 +13,6 @@ class Tasks extends Component {
   async componentDidMount() {
     try {
       const { data } = await getTasks();
-      console.log(data);
       this.setState({ tasks: data });
     } catch (error) {
       console.log(error);
@@ -29,7 +28,6 @@ class Tasks extends Component {
     const originalTasks = this.state.tasks;
     try {
       const { data } = await addTask({ task: this.state.currentTask });
-      console.log(data);
       const tasks = originalTasks;
       tasks.push(data);
       this.setState({ tasks, currentTask: "" });

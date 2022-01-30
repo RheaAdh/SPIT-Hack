@@ -1,7 +1,5 @@
 import React from "react";
 import Tasks from "./Tasks";
-import { Paper, TextField } from "@material-ui/core";
-import { Checkbox, Button } from "@material-ui/core";
 
 class Todo extends Tasks {
   state = { tasks: [], currentTask: "" };
@@ -9,53 +7,61 @@ class Todo extends Tasks {
   render() {
     const { tasks } = this.state;
     return (
-      <div className="todo">
-        <Paper elevation={3} className="container">
-          <div className="heading">TO-DO</div>
-          <form
-            onSubmit={this.handleSubmit}
-            className="flex"
-            style={{ margin: "15px 0" }}
+      <div className="toDoList">
+        <form onSubmit={this.handleSubmit}>
+          <input
+            size="small"
+            style={{
+              width: "80%",
+              padding: "0.5rem",
+              color: "white",
+              backgroundColor: "#384147",
+            }}
+            value={this.state.currentTask}
+            required={true}
+            onChange={this.handleChange}
+            placeholder="ADD TASK"
+          />
+          <button
+            type="submit"
+            type="submit"
+            id="expenseSubmit"
+            value="+"
+            style={{
+              borderRadius: "40px",
+              marginLeft: "1rem",
+              color: "white",
+              fontWeight: "bold",
+              backgroundColor: "#384147",
+            }}
           >
-            <TextField
-              variant="outlined"
-              size="small"
-              style={{ width: "80%" }}
-              value={this.state.currentTask}
-              required={true}
-              onChange={this.handleChange}
-              placeholder="Add New TO-DO"
-            />
-            <Button
-              style={{ height: "40px" }}
-              color="primary"
-              variant="outlined"
-              type="submit"
-            >
-              Add task
-            </Button>
-          </form>
-          <div>
-            {tasks.map((task) => (
-              <Paper key={task._id} className="flex task_container">
-                <Checkbox
+            +
+          </button>
+        </form>
+        <div className="task-list">
+          {tasks.map((task) => (
+            <div key={task._id} className="uhh" style={{ padding: "0.25rem" }}>
+              <span style={{ fontSize: "3rem" }}>
+                <input
+                  type="checkbox"
                   checked={task.completed}
                   onClick={() => this.handleUpdate(task._id)}
-                  color="primary"
                 />
-                <div className={task.completed ? "task line_through" : "task"}>
-                  {task.task}
-                </div>
-                <Button
-                  onClick={() => this.handleDelete(task._id)}
-                  color="secondary"
-                >
-                  delete
-                </Button>
-              </Paper>
-            ))}
-          </div>
-        </Paper>
+              </span>
+
+              <div className={task.completed ? "task line_through" : "task"}>
+                {task.task}
+              </div>
+
+              <button
+                id="icons"
+                className="fa fa-trash"
+                onClick={() => this.handleDelete(task._id)}
+                style={{ backgroundColor: "#192225" }}
+              ></button>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

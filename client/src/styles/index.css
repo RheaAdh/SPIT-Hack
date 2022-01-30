@@ -1,236 +1,379 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-*,
-*:before,
-*:after {
-  padding: 0;
+* {
+  color: #ffffff;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body {
-  background-color: #192325;
-}
-
-.login .background {
-  width: 430px;
-  height: 520px;
-  position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-}
-
-.login .background .shape {
-  height: 200px;
-  width: 200px;
-  position: absolute;
-  border-radius: 50%;
-}
-
-.login .shape:first-child {
-  background: -webkit-gradient(linear, left top, left bottom, from(#384147), to(#bbbbbb));
-  background: linear-gradient(#384147, #bbbbbb);
-  left: -80px;
-  top: -80px;
-}
-
-.login .shape:last-child {
-  background: -webkit-gradient(linear, left top, right top, from(#bbf247), to(#000000));
-  background: linear-gradient(to right, #bbf247, #000000);
-  right: -30px;
-  bottom: -80px;
-}
-
-.login form {
-  height: 520px;
-  width: 400px;
-  background-color: rgba(255, 255, 255, 0.13);
-  position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  border-radius: 10px;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  -webkit-box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-          box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-  padding: 50px 35px;
-}
-
-.login form * {
+  padding: 0;
   font-family: "Poppins", sans-serif;
-  color: #ffffff;
-  letter-spacing: 0.5px;
-  outline: none;
-  border: none;
 }
 
-.login form h3 {
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 42px;
-  text-align: center;
-}
-
-.login label {
-  display: block;
-  margin-top: 30px;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.login input {
-  display: block;
-  height: 50px;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.07);
-  border-radius: 3px;
-  padding: 0 10px;
-  margin-top: 8px;
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.login ::-webkit-input-placeholder {
-  color: #bbf247;
-}
-
-.login :-ms-input-placeholder {
-  color: #bbf247;
-}
-
-.login ::-ms-input-placeholder {
-  color: #bbf247;
-}
-
-.login ::placeholder {
-  color: #bbf247;
-}
-
-.login button {
-  margin-top: 100px;
-  width: 100%;
-  background-color: #192225;
-  color: #bbf247;
-  padding: 15px 0;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 5px;
+button {
+  padding: 5px;
+  height: 2rem;
   cursor: pointer;
 }
 
-.register .background {
-  width: 430px;
-  height: 520px;
-  position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-}
-
-.register .background .shape {
-  height: 200px;
-  width: 200px;
-  position: absolute;
-  border-radius: 50%;
-}
-
-.register .shape:first-child {
-  background: -webkit-gradient(linear, left top, left bottom, from(#384147), to(#bbbbbb));
-  background: linear-gradient(#384147, #bbbbbb);
-  left: -80px;
-  top: -80px;
-}
-
-.register .shape:last-child {
-  background: -webkit-gradient(linear, left top, right top, from(#bbf247), to(#000000));
-  background: linear-gradient(to right, #bbf247, #000000);
-  right: -30px;
-  bottom: -80px;
-}
-
-.register form {
-  height: 520px;
-  width: 400px;
-  background-color: rgba(255, 255, 255, 0.13);
-  position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  border-radius: 10px;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  -webkit-box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-          box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-  padding: 50px 35px;
-}
-
-.register form * {
-  font-family: "Poppins", sans-serif;
-  color: #ffffff;
-  letter-spacing: 0.5px;
-  outline: none;
-  border: none;
-}
-
-.register form h3 {
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 42px;
-  text-align: center;
-}
-
-.register label {
-  display: block;
-  margin-top: 30px;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.register input {
-  display: block;
-  height: 35px;
+.dashboard {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.07);
-  border-radius: 3px;
-  padding: 0 10px;
-  margin-top: 8px;
-  font-size: 14px;
-  font-weight: 300;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 45% 35% 20%;
+      grid-template-columns: 45% 35% 20%;
+  -ms-grid-rows: 20% 20% 20% 20% 20%;
+      grid-template-rows: 20% 20% 20% 20% 20%;
+  height: 100vh;
+      grid-template-areas: "profile toDoList news" "expenseTracker toDoList news" "expenseTracker toDoList eventReminder" "expenseTracker toDoList eventReminder" "expenseTracker menstrualReminder eventReminder";
 }
 
-.register ::-webkit-input-placeholder {
-  color: #bbf247;
-}
-
-.register :-ms-input-placeholder {
-  color: #bbf247;
-}
-
-.register ::-ms-input-placeholder {
-  color: #bbf247;
-}
-
-.register ::placeholder {
-  color: #bbf247;
-}
-
-.register button {
-  margin-top: 60px;
-  width: 100%;
+.profile {
+  padding-left: 1rem;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: profile;
   background-color: #192225;
+  border: solid 3px #192225;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+      grid-template-areas: "text" "socialIcons";
+}
+
+.avatar {
+  background-size: cover;
+  background-color: #192225;
+  border: solid 3px #192225;
+}
+
+.text {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: text;
+  background-color: #192225;
+  border: solid 3px #192225;
+}
+
+.socialIcons {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: socialIcons;
+  background-color: #192225;
+  border: solid 3px #192225;
+}
+
+.fa {
+  padding: 5px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 0px;
+  color: rgba(187, 187, 187, 0.66);
+}
+
+.fa:hover {
   color: #bbf247;
-  padding: 15px 0;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 5px;
+}
+
+.slider {
+  grid-area: slider;
+  border: solid 3px #192225;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.expenseTracker {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 4;
+  -ms-grid-column: 1;
+  grid-area: expenseTracker;
+  background-color: #192225;
+  border: solid 3px #192225;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 20% 60% 20%;
+      grid-template-rows: 20% 60% 20%;
+      grid-template-areas: "expenseHeadline expenseHeadline" "chart legend" "expenseForm expenseForm";
+}
+
+.expenseHeadline {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: expenseHeadline;
+}
+
+.chart {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: chart;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.expenseForm {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: expenseForm;
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 10px;
+}
+
+.menstrualForm {
+  padding-top: 10px;
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.eventForm {
+  padding-top: 10px;
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input,
+select {
+  background-color: #384147;
+  border-radius: 15px;
+  height: 30px;
+  border: none;
   cursor: pointer;
+}
+
+.eventForm {
+  grid-area: eventForm;
+  background-color: #192225;
+  border: solid 3px #192225;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 50% 50%;
+      grid-template-rows: 50% 50%;
+      grid-template-areas: "eventName eventName" "date submit";
+}
+
+#date {
+  width: 150px;
+  margin-right: 10px;
+  text-indent: 10px;
+}
+
+#reminderDate {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: date;
+  width: 150px;
+  margin-right: 10px;
+  text-indent: 10px;
+}
+
+#category {
+  width: 8rem;
+  margin-right: 10px;
+  text-indent: 10px;
+}
+
+#eventName {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: eventName;
+  text-indent: 10px;
+}
+
+#type {
+  width: 8rem;
+  margin-right: 10px;
+  text-indent: 10px;
+}
+
+#amount {
+  margin-right: 10px;
+  text-indent: 10px;
+}
+
+#expenseSubmit {
+  width: 30px;
+}
+
+#menstrualSubmit {
+  width: 80px;
+}
+
+#eventSubmit {
+  width: 80px;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: submit;
+}
+
+.amount {
+  color: #bbf247;
+  font-size: 30px;
+}
+
+.daysLeft {
+  color: #bbf247;
+  font-size: 50px;
+}
+
+.eventDate {
+  color: #bbf247;
+  font-size: 15px;
+}
+
+.sliderText {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #bbf247 !important;
+}
+
+.toDoList {
+  background-color: #192225;
+  padding: 1rem;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 4;
+  -ms-grid-column: 2;
+  grid-area: toDoList;
+  border-top: solid 5px #192225;
+}
+
+.toDoList form {
+  margin: 1rem;
+}
+
+.toDoList form input {
+  background-color: white;
+}
+
+.toDoList .task-list .uhh {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.music {
+  grid-area: music;
+  background-color: #384147;
+  border-top: solid 5px #192225;
+}
+
+.eventReminder {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 3;
+  grid-area: eventReminder;
+  background-color: #192225;
+  border: solid 5px #192225;
+}
+
+a {
+  text-decoration: none;
+  background-color: #384147;
+}
+
+.d-flex {
+  background-color: #384147;
+}
+
+.list-group-item {
+  background-color: #384147;
+}
+
+.list-group {
+  background-color: #384147;
+}
+
+h3 {
+  padding-left: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: #384147;
+  font-size: 17px;
+}
+
+.news {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: news;
+  background-color: #192225;
+  border: solid 5px #192225;
+}
+
+hr {
+  color: #192225;
+  border: 1px solid #192225;
+}
+
+.menstrualReminder {
+  background-color: #192225;
+  -ms-grid-row: 5;
+  -ms-grid-column: 2;
+  grid-area: menstrualReminder;
+  border-top: solid 3px #192225;
+}
+
+.wordle {
+  grid-area: wordle;
+  background-color: #384147;
+  border: solid 3px #192225;
+}
+
+@media (max-width: 1000px) {
+  .dashboard {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    height: auto;
+        grid-template-areas: "profile" "toDoList" "expenseTracker" "slider" "menstrualReminder" "news" "eventReminder";
+  }
+  .avatar {
+    display: none;
+  }
 }
 /*# sourceMappingURL=index.css.map */

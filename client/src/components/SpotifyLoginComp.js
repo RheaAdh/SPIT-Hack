@@ -10,8 +10,6 @@ const SpotifyLoginComp = () => {
     setResponse(response);
     setAccesstoken(response.access_token);
     localStorage.setItem("accesstoken", response.access_token);
-    console.log("---------------------");
-    console.log(response);
   };
   const getReccom = async () => {
     // const res = await axios.get("https://api.spotify.com/v1/recommendations/", {

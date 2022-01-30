@@ -8,7 +8,6 @@ const Event = () => {
   const [eventDetails, setEventDetails] = React.useState([]);
 
   const handleSubmit = async () => {
-    console.log("innnnnnnn");
     const data = {
       eventDate,
       eventType,
@@ -19,8 +18,6 @@ const Event = () => {
         "x-auth-token": localStorage.getItem(TOKEN_ID),
       },
     });
-    console.log("success add Event details");
-    console.log(res);
   };
   const getDetails = async () => {
     const res = await axios.get("http://localhost:5000/api/event", {
@@ -29,9 +26,7 @@ const Event = () => {
         "x-auth-token": localStorage.getItem(TOKEN_ID),
       },
     });
-    alert("hi");
-    console.log("in evennnnnnnnnnt");
-    console.log(res);
+
     setEventDetails(res.data.data);
   };
   useEffect(() => {
@@ -39,32 +34,42 @@ const Event = () => {
   }, []);
 
   return (
-    <div className="event">
-      <form onSubmit={handleSubmit}>
-        <h4>Event</h4>
-
+    <div className="eventReminder">
+      <form onSubmit={handleSubmit} className="eventForm">
         <input
-          type="date"
-          placeholder="event Date"
-          onChange={(e) => setEventDate(e.target.value)}
-        ></input>
-        <input
+          style={{ width: "15rem", height: "2rem", marginBottom: "2rem" }}
           type="text"
-          placeholder="event text"
+          id="eventName"
+          placeholder="Name of the event"
           onChange={(e) => setEventType(e.target.value)}
         ></input>
+        <input
+          type="date"
+          style={{ width: "10rem", height: "2rem", marginBottom: "2rem" }}
+          id="reminderDate"
+          placeholder="date"
+          onChange={(e) => setEventDate(e.target.value)}
+        ></input>
 
-        <button type="submit">Add Details</button>
+        <input
+          type="submit"
+          id="eventSubmit"
+          placeholder="+"
+          style={{ width: "5rem", height: "2rem", marginBottom: "2rem" }}
+        />
       </form>
-      {eventDetails ? (
-        eventDetails.map((data) => (
-          <h3>
-            {data.eventDate} : {data.eventType}
-          </h3>
-        ))
-      ) : (
-        <div></div>
-      )}
+      <div class="eventList">
+        {eventDetails ? (
+          eventDetails.map((data) => (
+            <p>
+              <span class="eventDate">{data.eventDate}:&nbsp;</span>
+              {data.eventType}
+            </p>
+          ))
+        ) : (
+          <div></div>
+        )}
+      </div>
     </div>
   );
 };

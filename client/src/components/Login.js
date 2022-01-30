@@ -31,7 +31,6 @@ const Login = () => {
         password,
       },
     }).then((result) => {
-      console.log(result);
       if (result.data.success) {
         auth.login(result.data.user, result.data.token);
         navigate("/home");

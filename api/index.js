@@ -11,6 +11,7 @@ const tasks = require("./routes/tasks");
 const expense = require("./routes/expense");
 const period = require("./routes/period");
 const event = require("./routes/event");
+const music = require("./routes/music");
 
 connectDB();
 
@@ -22,6 +23,7 @@ app.use("/api/tasks", tasks);
 app.use("/api/expense", expense);
 app.use("/api/period", period);
 app.use("/api/event", event);
+app.use("/api/music", music);
 
 const PORT = process.env.PORT || 5000;
 

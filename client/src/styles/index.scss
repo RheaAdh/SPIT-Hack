@@ -1,186 +1,343 @@
-@import "./constants";
-@import "./base";
-
-.login {
-  .background {
-    width: 430px;
-    height: 520px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-  }
-  .background .shape {
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
-  }
-  .shape:first-child {
-    background: linear-gradient(#384147, #bbbbbb);
-    left: -80px;
-    top: -80px;
-  }
-  .shape:last-child {
-    background: linear-gradient(to right, #bbf247, #000000);
-    right: -30px;
-    bottom: -80px;
-  }
-  form {
-    height: 520px;
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.13);
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-    padding: 50px 35px;
-  }
-  form * {
-    font-family: "Poppins", sans-serif;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
-  }
-  form h3 {
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-  }
-
-  label {
-    display: block;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
-  }
-  input {
-    display: block;
-    height: 50px;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 3px;
-    padding: 0 10px;
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 300;
-  }
-  ::placeholder {
-    color: #bbf247;
-  }
-  button {
-    margin-top: 100px;
-    width: 100%;
-    background-color: #192225;
-    color: #bbf247;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+* {
+  // background-color: #192225;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
-
-.register {
-  .background {
-    width: 430px;
-    height: 520px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-  }
-  .background .shape {
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
-  }
-  .shape:first-child {
-    background: linear-gradient(#384147, #bbbbbb);
-    left: -80px;
-    top: -80px;
-  }
-  .shape:last-child {
-    background: linear-gradient(to right, #bbf247, #000000);
-    right: -30px;
-    bottom: -80px;
-  }
-  form {
-    height: 520px;
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.13);
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-    padding: 50px 35px;
-  }
-  form * {
-    font-family: "Poppins", sans-serif;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
-  }
-  form h3 {
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-  }
-
-  label {
-    display: block;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
-  }
-  input {
-    display: block;
-    height: 35px;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 3px;
-    padding: 0 10px;
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 300;
-  }
-  ::placeholder {
-    color: #bbf247;
-  }
-  button {
-    margin-top: 60px;
-    width: 100%;
-    background-color: #192225;
-    color: #bbf247;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+button {
+  padding: 5px;
+  height: 2rem;
+  cursor: pointer;
 }
-
 .dashboard {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 45% 35% 20%;
+  grid-template-rows:
+    20%
+    20%
+    20%
+    20%
+    20%;
+  height: 100vh;
+  grid-template-areas:
+    "profile toDoList news"
+    "expenseTracker toDoList news"
+    "expenseTracker toDoList eventReminder"
+    "expenseTracker toDoList eventReminder"
+    "expenseTracker menstrualReminder eventReminder";
 }
 
-.event {
+.profile {
+  padding-left: 1rem;
+  grid-area: profile;
+  background-color: #192225;
+  border: solid 3px #192225;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-areas:
+    "text"
+    "socialIcons";
 }
 
-.expense {
+.avatar {
+  // grid-area: avatar;
+  // background-image: url(/assets/avatar.png);
+  background-size: cover;
+  background-color: #192225;
+  border: solid 3px #192225;
 }
 
-.todo {
+.text {
+  grid-area: text;
+  background-color: #192225;
+  border: solid 3px #192225;
+}
+
+.socialIcons {
+  grid-area: socialIcons;
+  background-color: #192225;
+  border: solid 3px #192225;
+}
+
+.fa {
+  padding: 5px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 0px;
+  color: rgba(187, 187, 187, 0.66);
+  &:hover {
+    color: #bbf247;
+  }
+}
+
+.slider {
+  grid-area: slider;
+  border: solid 3px #192225;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.expenseTracker {
+  grid-area: expenseTracker;
+  background-color: #192225;
+  border: solid 3px #192225;
+  width: 100%;
+  display: grid;
+  grid-template-rows:
+    20%
+    60%
+    20%;
+  grid-template-areas:
+    "expenseHeadline expenseHeadline"
+    "chart legend"
+    "expenseForm expenseForm";
+}
+
+.expenseHeadline {
+  grid-area: expenseHeadline;
+}
+
+.chart {
+  grid-area: chart;
+  // background-image: url("/assets/chart.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.expenseForm {
+  grid-area: expenseForm;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.menstrualForm {
+  padding-top: 10px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.eventForm {
+  padding-top: 10px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input,
+select {
+  background-color: #384147;
+  border-radius: 15px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.eventForm {
+  grid-area: eventForm;
+  background-color: #192225;
+  border: solid 3px #192225;
+  width: 100%;
+  display: grid;
+  grid-template-rows:
+    50%
+    50%;
+  grid-template-areas:
+    "eventName eventName"
+    "date submit";
+}
+
+#date {
+  width: 150px;
+  margin-right: 10px;
+  text-indent: 10px;
+}
+
+#reminderDate {
+  grid-area: date;
+  width: 150px;
+  margin-right: 10px;
+  text-indent: 10px;
+}
+
+#category {
+  width: 8rem;
+  margin-right: 10px;
+  text-indent: 10px;
+}
+
+#eventName {
+  grid-area: eventName;
+  text-indent: 10px;
+}
+
+#type {
+  width: 8rem;
+  margin-right: 10px;
+  text-indent: 10px;
+}
+
+#amount {
+  margin-right: 10px;
+  text-indent: 10px;
+}
+
+#expenseSubmit {
+  width: 30px;
+}
+
+#menstrualSubmit {
+  width: 80px;
+}
+
+#eventSubmit {
+  width: 80px;
+  grid-area: submit;
+}
+
+.amount {
+  color: #bbf247;
+  font-size: 30px;
+}
+
+.daysLeft {
+  color: #bbf247;
+  font-size: 50px;
+}
+
+.eventDate {
+  color: #bbf247;
+  font-size: 15px;
+}
+
+.sliderText {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #bbf247 !important;
+}
+
+.toDoList {
+  background-color: #192225;
+  padding: 1rem;
+  grid-area: toDoList;
+  border-top: solid 5px #192225;
+  form {
+    margin: 1rem;
+    input {
+      background-color: white;
+    }
+  }
+  .task-list {
+    .uhh {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+.music {
+  grid-area: music;
+  background-color: #384147;
+  border-top: solid 5px #192225;
+}
+
+.eventReminder {
+  grid-area: eventReminder;
+  background-color: #192225;
+  border: solid 5px #192225;
+}
+
+a {
+  text-decoration: none;
+  background-color: #384147;
+}
+
+.d-flex {
+  background-color: #384147;
+}
+
+.list-group-item {
+  background-color: #384147;
+}
+
+.list-group {
+  background-color: #384147;
+}
+
+h3 {
+  padding-left: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: #384147;
+  font-size: 17px;
+}
+
+.news {
+  grid-area: news;
+  background-color: #192225;
+  border: solid 5px #192225;
+}
+
+hr {
+  color: #192225;
+  border: 1px solid #192225;
+}
+
+.menstrualReminder {
+  background-color: #192225;
+  grid-area: menstrualReminder;
+  border-top: solid 3px #192225;
+}
+
+.wordle {
+  grid-area: wordle;
+  background-color: #384147;
+  border: solid 3px #192225;
+}
+
+@media (max-width: 1000px) {
+  .dashboard {
+    display: grid;
+    grid-template-columns: 100%;
+    height: auto;
+    grid-template-areas:
+      "profile"
+      "toDoList"
+      "expenseTracker"
+      "slider"
+      "menstrualReminder"
+      "news"
+      "eventReminder";
+  }
+  .avatar {
+    display: none;
+  }
 }

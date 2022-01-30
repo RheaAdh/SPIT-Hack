@@ -9,7 +9,6 @@ const Period = () => {
   const [daysLeft, setDaysLeft] = React.useState(0);
 
   const handleSubmit = async () => {
-    console.log(periodDate);
     const data = {
       periodDate,
       periodCycle,
@@ -25,8 +24,6 @@ const Period = () => {
         },
       }
     );
-    console.log("success add period details");
-    console.log(res);
   };
   const getDays = async () => {
     const res = await axios.get("http://localhost:5000/api/period/daysleft", {
@@ -35,8 +32,6 @@ const Period = () => {
         "x-auth-token": localStorage.getItem(TOKEN_ID),
       },
     });
-    console.log("daysleft");
-    console.log(res);
     setDaysLeft(Math.floor(res.data.data));
   };
   useEffect(() => {
@@ -44,28 +39,42 @@ const Period = () => {
   }, []);
 
   return (
-    <div className="period">
-      <form onSubmit={handleSubmit}>
-        {" "}
-        <h4>Period</h4>
-        <h3>Days left:{daysLeft}</h3>
+    <div className="menstrualReminder">
+      <form onSubmit={handleSubmit} className="menstrualForm">
         <input
+          style={{ width: "12rem", height: "2rem" }}
           type="date"
-          placeholder="Previous Start Date"
+          id="date"
+          placeholder="Last Period"
           onChange={(e) => setPeriodDate(e.target.value)}
         ></input>
         <input
           type="number"
-          placeholder="Cycle Length"
+          id="amount"
+          min="0"
+          style={{ width: "8rem", height: "2rem" }}
+          placeholder="Cycle period"
           onChange={(e) => setPeriodCycle(e.target.value)}
         ></input>
-        {/* <input
-        type="number"
-        placeholder="How long is it for"
-        onChange={(e) => setPeriodLength(e.target.value)}
-      ></input> */}
-        <button type="submit">Add Details</button>
+
+        <input
+          type="submit"
+          id="menstrualSubmit"
+          placeholder="+"
+          style={{
+            width: "8rem",
+            height: "2rem",
+            marginBottom: "2rem",
+            paddingTop: "-30px",
+          }}
+        ></input>
       </form>
+      <div className="menstrualCount">
+        <p align="center">
+          <span className="daysLeft">{daysLeft}</span>&nbsp;days until your next
+          period
+        </p>
+      </div>
     </div>
   );
 };
