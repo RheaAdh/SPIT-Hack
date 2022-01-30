@@ -65,7 +65,6 @@ const Period = () => {
             width: "8rem",
             height: "2rem",
             marginBottom: "2rem",
-            paddingTop: "-30px",
           }}
         ></input>
       </form>

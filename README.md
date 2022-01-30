@@ -8,3 +8,7 @@
 - Anushka Prasad
 - Aprajita Khurana
 - Rhea Adhikari
+
+### Screenshot
+
+<img src="./Screenshot.png"/>
