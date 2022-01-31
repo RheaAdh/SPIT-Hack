@@ -77,11 +77,11 @@ const Register = () => {
   return (
     <div className="register">
       <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
+        {/* <div class="shape"></div>
+        <div class="shape"></div> */}
       </div>
 
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit} style={{ fontSize: "1rem" }}>
         <h2>Register</h2>
         <div>
           <label for="username">Full Name</label>
@@ -115,7 +115,9 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
           ></input>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit" style={{ padding: "0.3rem" }}>
+          Register
+        </button>
       </form>
     </div>
   );

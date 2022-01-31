@@ -34,10 +34,16 @@ const Event = () => {
   }, []);
 
   return (
-    <div className="eventReminder">
+    <div className="eventReminder" style={{ marginTop: "1rem" }}>
+      <h1>Reminders</h1>
       <form onSubmit={handleSubmit} className="eventForm">
         <input
-          style={{ width: "15rem", height: "2rem", marginBottom: "2rem" }}
+          style={{
+            width: "15rem",
+            height: "2rem",
+            color: "white",
+            marginBottom: "-1rem",
+          }}
           type="text"
           id="eventName"
           placeholder="Name of the event"
@@ -50,7 +56,7 @@ const Event = () => {
           placeholder="date"
           onChange={(e) => setEventDate(e.target.value)}
         ></input>
-
+        <i class="fas fa-plus-circle"></i>
         <input
           type="submit"
           id="eventSubmit"
@@ -58,12 +64,12 @@ const Event = () => {
           style={{ width: "5rem", height: "2rem", marginBottom: "2rem" }}
         />
       </form>
-      <div class="eventList">
+      <div class="eventList" style={{ paddingLeft: "1rem" }}>
         {eventDetails ? (
           eventDetails.map((data) => (
-            <p>
-              <span class="eventDate">{data.eventDate}:&nbsp;</span>
-              {data.eventType}
+            <p style={{ fontWeight: "bold", marginBottom: "1rem" }}>
+              <span class="eventDate">{data.eventDate} : &nbsp;</span>
+              <b>{data.eventType}</b>
             </p>
           ))
         ) : (

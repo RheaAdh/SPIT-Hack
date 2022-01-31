@@ -81,6 +81,14 @@ const Expense = () => {
         </p>
       </div>
       <div className="legend">
+        {pieData
+          ? pieData.map((data) => (
+              <h3 style={{ paddingTop: "0.5rem", backgroundColor: "#192225" }}>
+                {data.title} : {data.value}
+              </h3>
+            ))
+          : null}
+        <br />
         <span
           style={{
             marginLeft: "1rem",
@@ -89,18 +97,15 @@ const Expense = () => {
           <a
             className="btn"
             href={link}
-            style={{ padding: "10px", borderRadius: "15px", margin: "1rem" }}
+            style={{
+              padding: "10px",
+              borderRadius: "15px",
+              marginLeft: "-1rem",
+            }}
           >
             Download Full Report
           </a>
         </span>
-        {pieData
-          ? pieData.map((data) => (
-              <h3 style={{ paddingTop: "0.5rem", backgroundColor: "#192225" }}>
-                {data.title} : {data.value}
-              </h3>
-            ))
-          : null}
       </div>
 
       <div className="chart">

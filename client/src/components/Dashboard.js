@@ -8,13 +8,13 @@ import SpotifyLoginComp from "./SpotifyLoginComp";
 import Socials from "./Socials";
 import Music from "./Music";
 import News from "./News.js";
+import { TOKEN_ID } from "../utils/constants";
 // import Slider from "./Slider";
 
 const Dashboard = () => {
   const auth = useAuth();
   return (
     <div className="dashboard">
-      <i class="fas fa-sign-out-alt"></i>
       <Socials />
       <Expense />
       <Todo />

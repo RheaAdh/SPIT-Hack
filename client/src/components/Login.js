@@ -43,8 +43,8 @@ const Login = () => {
   return (
     <div className="login">
       <div className="background">
-        <div className="shape"></div>
-        <div className="shape"></div>
+        {/* <div className="shape"></div>
+        <div className="shape"></div> */}
       </div>
       <form onSubmit={handleFormSubmit}>
         <h2>Login</h2>
@@ -65,7 +65,9 @@ const Login = () => {
           ></input>
         </div>
 
-        <button type="submit">Login</button>
+        <button type="submit" style={{ padding: "0.3rem" }}>
+          Login
+        </button>
       </form>
     </div>
   );

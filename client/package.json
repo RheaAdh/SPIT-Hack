@@ -11,9 +11,11 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.25.0",
     "date-and-time": "^2.1.0",
+    "dotenv": "^14.3.2",
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-dotenv": "^0.1.3",
     "react-hot-toast": "^2.2.0",
     "react-minimal-pie-chart": "^8.2.0",
     "react-router-dom": "^6.2.1",
@@ -23,8 +25,9 @@
     "web-vitals": "^2.1.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-dotenv && react-scripts start",
+    "build": "react-dotenv && react-scripts build",
+    "serve": "react-dotenv && serve build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -44,6 +47,11 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "react-dotenv": {
+    "whitelist": [
+      "NEWS_API_KEY"
     ]
   }
 }

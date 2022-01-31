@@ -12,6 +12,8 @@ class Todo extends Tasks {
           <input
             size="small"
             style={{
+              borderRadius: "0.15rem",
+              height: "2rem",
               width: "80%",
               padding: "0.5rem",
               color: "white",

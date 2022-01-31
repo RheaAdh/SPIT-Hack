@@ -39,8 +39,13 @@ const Period = () => {
   }, []);
 
   return (
-    <div className="menstrualReminder">
-      <form onSubmit={handleSubmit} className="menstrualForm">
+    <div className="menstrualReminder" style={{ marginTop: "-8rem" }}>
+      <h1>Menstrual Tracker</h1>
+      <form
+        onSubmit={handleSubmit}
+        className="menstrualForm"
+        style={{ marginLeft: "-1rem" }}
+      >
         <input
           style={{ width: "12rem", height: "2rem" }}
           type="date"
@@ -64,14 +69,16 @@ const Period = () => {
           style={{
             width: "8rem",
             height: "2rem",
-            marginBottom: "2rem",
+            marginBottom: "1rem",
           }}
         ></input>
       </form>
       <div className="menstrualCount">
         <p align="center">
-          <span className="daysLeft">{daysLeft}</span>&nbsp;days until your next
-          period
+          <span className="daysLeft" style={{ fontSize: "5rem" }}>
+            {daysLeft}
+          </span>
+          &nbsp;days until your next period
         </p>
       </div>
     </div>
